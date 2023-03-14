@@ -1,4 +1,4 @@
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, SafeAreaView } from "react-native";
 import React from "react";
 
 export default function HomeScreen(props) {
@@ -9,12 +9,12 @@ export default function HomeScreen(props) {
   };
 
   return (
-    <View>
+    <SafeAreaView>
       <Text>HomeScreen</Text>
       <Text>HomeScreen</Text>
       <Text>HomeScreen</Text>
       <Text>HomeScreen</Text>
       <Button onPress={goToPage} title="Go to Page" />
-    </View>
+    </SafeAreaView>
   );
 }
