@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import LoginForm from "../componet/LoginForm";
+import LoginForm from "../componet/login/LoginForm";
 import React from "react";
 
 export default function LoginScreen() {
