@@ -1,5 +1,5 @@
-import { View, Text, TextInput, StyleSheet } from "react-native";
-import React, { useEffect, useState } from "react";
+import { View, TextInput, StyleSheet, Text } from "react-native";
+import React, { useState } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 export default function LoginForm() {
@@ -34,6 +34,9 @@ export default function LoginForm() {
           onPress={setNewStateInputSecret}
         />
       </View>
+      <View style={styles.contentButton}>
+        <Text style={styles.button}> INICIAR SESION</Text>
+      </View>
     </View>
   );
 }
@@ -54,5 +57,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  contentButton: {
+    marginTop: 60,
+    alignItems: "center",
+  },
+  button: {
+    backgroundColor: "#9733ee",
+    color: "white",
+    borderWidth: 0.3,
+    fontWeight: "bold",
+    fontSize: 20,
+    borderColor: "white",
+    width: "90%",
+    height: "37%",
+    textAlign: "center",
+    borderRadius: 20,
+    padding: 10,
   },
 });
