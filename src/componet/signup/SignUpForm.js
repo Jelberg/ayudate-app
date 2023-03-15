@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import React, { useState } from "react";
-import User from "../../domain/user";
-import { createUserApi, login } from "../../api/user";
+import UserDomain from "../../domain/UserDomain";
+import { createUserApi } from "../../api/user";
 import { useNavigation } from "@react-navigation/native";
 import { useFormik } from "formik";
 
@@ -28,7 +28,9 @@ export default function SignUpForm() {
     validateOnChange: false,
     onSubmit: async (formValue) => {
       const { username, password } = formValue;
-      const user = new User(username, password);
+      const user = new UserDomain();
+      user.username = username;
+      user.password = password;
       await createUserApi(user).then(() => {
         Alert.alert(
           "Exitoso",
