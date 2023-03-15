@@ -51,7 +51,7 @@ export default function SignUpForm() {
           secureTextEntry={isSecretAgain}
         ></TextInput>
         <Icon
-          name={eye}
+          name={eyeAgain}
           color="#ffffff"
           size={20}
           onPress={setNewStateInputSecretAgain}
