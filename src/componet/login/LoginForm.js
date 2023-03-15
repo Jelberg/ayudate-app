@@ -1,14 +1,45 @@
-import { View, TextInput, StyleSheet, Text } from "react-native";
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Text,
+  Pressable,
+  Alert,
+} from "react-native";
 import React, { useState } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import { login } from "../../api/user";
+import { useFormik } from "formik";
+import { useNavigation } from "@react-navigation/native";
 
 export default function LoginForm() {
+  const navigation = useNavigation();
   const [isSecret, setIsSecret] = useState(true);
   const [eye, setEye] = useState("eye");
 
   function setNewStateInputSecret() {
     setIsSecret(!isSecret);
     setEye(isSecret ? "eye-slash" : "eye");
+  }
+
+  const formik = useFormik({
+    initialValues: initialValues(),
+    validateOnChange: false,
+    onSubmit: async (formValue) => {
+      const { username, password } = formValue;
+      await login(username, password).then((res) => {
+        if (Object.keys(res).length === 0)
+          Alert.alert("Datos erroneos", "Usuario o contrasena no existen");
+        else navigation.navigate("HomeNavigation");
+      });
+    },
+  });
+
+  function initialValues() {
+    return {
+      username: "",
+      password: "",
+    };
   }
 
   return (
@@ -18,6 +49,8 @@ export default function LoginForm() {
         style={styles.input}
         placeholderTextColor="white"
         autoCapitalize="none"
+        value={formik.values.username}
+        onChangeText={(text) => formik.setFieldValue("username", text)}
       />
       <View style={styles.inputPassword}>
         <TextInput
@@ -26,6 +59,8 @@ export default function LoginForm() {
           placeholderTextColor="white"
           placeholder="password"
           secureTextEntry={isSecret}
+          value={formik.values.password}
+          onChangeText={(text) => formik.setFieldValue("password", text)}
         ></TextInput>
         <Icon
           name={eye}
@@ -34,9 +69,9 @@ export default function LoginForm() {
           onPress={setNewStateInputSecret}
         />
       </View>
-      <View style={styles.contentButton}>
+      <Pressable style={styles.contentButton} onPress={formik.handleSubmit}>
         <Text style={styles.button}> INICIAR SESION</Text>
-      </View>
+      </Pressable>
     </View>
   );
 }

@@ -1,8 +1,20 @@
-import { View, Text, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Pressable,
+  Alert,
+} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import React, { useState } from "react";
+import User from "../../domain/user";
+import { createUserApi, login } from "../../api/user";
+import { useNavigation } from "@react-navigation/native";
+import { useFormik } from "formik";
 
 export default function SignUpForm() {
+  const navigation = useNavigation();
   const [isSecret, setIsSecret] = useState(true);
   const [eye, setEye] = useState("eye");
 
@@ -11,12 +23,27 @@ export default function SignUpForm() {
     setEye(isSecret ? "eye-slash" : "eye");
   }
 
-  const [isSecretAgain, setIsSecretAgain] = useState(true);
-  const [eyeAgain, setEyeAgain] = useState("eye");
+  const formik = useFormik({
+    initialValues: initialValues(),
+    validateOnChange: false,
+    onSubmit: async (formValue) => {
+      const { username, password } = formValue;
+      const user = new User(username, password);
+      await createUserApi(user).then(() => {
+        Alert.alert(
+          "Exitoso",
+          "Usuario creado con exito, por favor inicie sesion",
+          [{ text: "ok", onPress: () => navigation.navigate("Login") }]
+        );
+      });
+    },
+  });
 
-  function setNewStateInputSecretAgain() {
-    setIsSecretAgain(!isSecretAgain);
-    setEyeAgain(isSecretAgain ? "eye-slash" : "eye");
+  function initialValues() {
+    return {
+      username: "",
+      password: "",
+    };
   }
 
   return (
@@ -26,6 +53,8 @@ export default function SignUpForm() {
         style={styles.input}
         placeholderTextColor="white"
         autoCapitalize="none"
+        value={formik.values.username}
+        onChangeText={(text) => formik.setFieldValue("username", text)}
       />
       <View style={styles.inputPassword}>
         <TextInput
@@ -34,6 +63,8 @@ export default function SignUpForm() {
           placeholderTextColor="white"
           placeholder="Password"
           secureTextEntry={isSecret}
+          value={formik.values.password}
+          onChangeText={(text) => formik.setFieldValue("password", text)}
         ></TextInput>
         <Icon
           name={eye}
@@ -48,18 +79,12 @@ export default function SignUpForm() {
           style={styles.input}
           placeholderTextColor="white"
           placeholder="Password again"
-          secureTextEntry={isSecretAgain}
+          secureTextEntry={isSecret}
         ></TextInput>
-        <Icon
-          name={eyeAgain}
-          color="#ffffff"
-          size={20}
-          onPress={setNewStateInputSecretAgain}
-        />
       </View>
-      <View style={styles.contentButton}>
+      <Pressable style={styles.contentButton} onPress={formik.handleSubmit}>
         <Text style={styles.button}> REGISTRARSE</Text>
-      </View>
+      </Pressable>
     </View>
   );
 }
