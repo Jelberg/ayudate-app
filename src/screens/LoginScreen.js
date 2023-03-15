@@ -1,9 +1,15 @@
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import LoginForm from "../componet/login/LoginForm";
 import React from "react";
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
+  const { navigation } = props;
+
+  const goToPage = () => {
+    navigation.navigate("Signup");
+  };
+
   return (
     <SafeAreaView>
       <LinearGradient
@@ -13,9 +19,9 @@ export default function LoginScreen() {
         end={{ x: 1, y: 1 }}
         locations={[0, 0.9]}
       >
-        <View style={styles.signup}>
+        <Pressable style={styles.signup} onPress={goToPage}>
           <Text style={styles.textSignup}> REGISTRATE</Text>
-        </View>
+        </Pressable>
 
         <View style={styles.login}>
           <Text style={styles.title}>BIENVENIDO!</Text>

@@ -1,7 +1,7 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from "../screens/HomeScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import SettingsScreen from "../screens/SignUpScreen";
 
 const Drawer = createDrawerNavigator();
 
