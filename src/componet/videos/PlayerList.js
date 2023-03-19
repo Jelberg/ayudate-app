@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text, Button, View } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Player from "./Player";
 import { VIDEOS } from "../../utils/constants";
 
@@ -10,6 +10,10 @@ export default function PlayerList(props) {
   const videos = VIDEOS.filter((e) => e.type === level);
   const lengthList = videos.length;
   const v = [Object(videos[index])];
+
+  useEffect(() => {
+    setIndex(0);
+  }, [level]);
 
   function nextVideo() {
     if (index === lengthList - 1) {
