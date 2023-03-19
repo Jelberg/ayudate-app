@@ -1,4 +1,11 @@
-import { View, Text, SafeAreaView, StyleSheet, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  Pressable,
+  Image,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import LoginForm from "../componet/login/LoginForm";
 import React from "react";
@@ -23,6 +30,13 @@ export default function LoginScreen(props) {
           <Text style={styles.textSignup}> REGISTRATE</Text>
         </Pressable>
 
+        <View style={styles.imgLogo}>
+          <Image
+            source={require("../assets/icon.png")}
+            style={{ width: 100, height: 100 }}
+          />
+        </View>
+
         <View style={styles.login}>
           <Text style={styles.title}>BIENVENIDO!</Text>
           <LoginForm />
@@ -37,9 +51,12 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
+  imgLogo: {
+    alignItems: "center",
+    marginTop: 30,
+  },
   signup: {
     marginTop: 60,
-    marginBottom: 60,
     marginLeft: 30,
     borderWidth: 1,
     borderColor: "white",
