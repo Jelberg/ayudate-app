@@ -7,31 +7,28 @@ export default function Player(props) {
   const [isReady, setIsReady] = useState(true);
 
   return (
-    <View>
-      <View>
-        <YoutubePlayer
-          height={250}
-          play={false}
-          videoId={videoId.id}
-          onReady={() => {
-            isReady && (
-              <ActivityIndicator
-                size="large"
-                style={styles.spinner}
-                color="#AEAEAE"
-              ></ActivityIndicator>
-            );
-            //setIsReady(false);
-          }}
-          // onChangeState={onStateChange}
-        />
-      </View>
-    </View>
+    <YoutubePlayer
+      height={200}
+      style={styles.player}
+      play={false}
+      videoId={videoId}
+      onReady={() => {
+        isReady && (
+          <ActivityIndicator
+            size="large"
+            style={styles.spinner}
+            color="#AEAEAE"
+          ></ActivityIndicator>
+        );
+        //setIsReady(false);
+      }}
+      // onChangeState={onStateChange}
+    />
   );
 }
 
 const styles = StyleSheet.create({
-  listPlayer: {
-    flexDirection: "row",
+  player: {
+    flex: 1,
   },
 });
