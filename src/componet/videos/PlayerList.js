@@ -1,7 +1,14 @@
-import { StyleSheet, Text, Pressable, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  FlatList,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import Player from "./Player";
+import LearningList from "../learning/LearningList";
 
 export default function PlayerList(props) {
   const { level, list } = props;
@@ -27,6 +34,37 @@ export default function PlayerList(props) {
       setIndex(lengthList - 1);
     } else setIndex(index - 1);
   }
+
+  const [selectedId, setSelectedId] = useState();
+
+  const renderItem = ({ item }) => {
+    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
+    const color = item.id === selectedId ? "white" : "black";
+
+    return (
+      <TouchableOpacity style={styles.card}>
+        <View>
+          <Icon name="chevron-right" solid={true} size={15} color="gray" />
+        </View>
+        <View style={styles.contentTitleVideo}>
+          <Text style={styles.titleVideo}>{item.title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
+  const rItem = ({ item }) => {
+    return (
+      <View style={styles.card}>
+        <View>
+          <Icon name="chevron-right" solid={true} size={15} color="gray" />
+        </View>
+        <View style={styles.contentTitleVideo}>
+          <Text style={styles.titleVideo}>{item.title}</Text>
+        </View>
+      </View>
+    );
+  };
 
   return (
     <View style={styles.container}>
@@ -61,6 +99,16 @@ export default function PlayerList(props) {
             />
           </View>
         </View>
+      </View>
+
+      <View>
+        <FlatList
+          data={videos}
+          numColumns={1}
+          showsVerticalScrollIndicator={false}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
       </View>
     </View>
   );
@@ -104,5 +152,25 @@ const styles = StyleSheet.create({
   },
   iconArrow: {
     paddingHorizontal: 15,
+  },
+  card: {
+    flexDirection: "row",
+    borderTopWidth: 1,
+    padding: 10,
+    borderColor: "#d6d6d6",
+    marginHorizontal: 15,
+    marginVertical: 15,
+    alignItems: "center",
+  },
+  contentTitleVideo: {
+    marginHorizontal: 15,
+  },
+  titleVideo: {
+    fontSize: 16,
+  },
+  item: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
   },
 });
