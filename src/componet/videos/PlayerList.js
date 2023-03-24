@@ -8,7 +8,6 @@ import {
 import React, { useState, useEffect } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import Player from "./Player";
-import LearningList from "../learning/LearningList";
 
 export default function PlayerList(props) {
   const { level, list } = props;
