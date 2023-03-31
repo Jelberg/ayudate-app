@@ -37,6 +37,7 @@ export default function NavigationTab() {
         component={TestScreen}
         options={{
           tabBarLabel: "Test",
+
           tabBarIcon: ({ color, size }) => (
             <Icon name="stream" color={color} size={size} />
           ),

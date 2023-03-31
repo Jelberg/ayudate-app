@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "question": "¿A qué hace referencia el acrónimo TCA?",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Trastorno del Comportamiento Ambiental",
+        "isTrue": true
+      },
+      {
+        "id": 2,
+        "answer": "Trastorno del Comportamiento Alimentario",
+        "isTrue": false
+      },
+      {
+        "id": 3,
+        "answer": "Trastorno Cerebral Alimentario",
+        "isTrue": false
+      }
+    ]
+  }
+]
