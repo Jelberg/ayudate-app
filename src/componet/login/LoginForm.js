@@ -14,7 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 import PrimaryBtn from "../../utils/styles/buttons/primaryBtn";
 
 export default function LoginForm() {
-  const navigation = useNavigation();
+  const _navigation = useNavigation();
   const [isSecret, setIsSecret] = useState(true);
   const [eye, setEye] = useState("eye");
 
@@ -31,7 +31,7 @@ export default function LoginForm() {
       await login(username, password).then((res) => {
         if (Object.keys(res).length === 0)
           Alert.alert("Datos erroneos", "Usuario o contrasena no existen");
-        else navigation.navigate("HomeNavigation");
+        else _navigation.navigate("HomeNavigation");
       });
     },
   });

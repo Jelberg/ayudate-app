@@ -9,7 +9,7 @@ import PrimaryBtn from "../../utils/styles/buttons/primaryBtn";
 import { APP_COLORS } from "../../utils/styles/styles";
 
 export default function SignUpForm() {
-  const navigation = useNavigation();
+  const _navigation = useNavigation();
   const [isSecret, setIsSecret] = useState(true);
   const [eye, setEye] = useState("eye");
 
@@ -30,7 +30,7 @@ export default function SignUpForm() {
         Alert.alert(
           "Exitoso",
           "Usuario creado con exito, por favor inicie sesion",
-          [{ text: "ok", onPress: () => navigation.navigate("Login") }]
+          [{ text: "ok", onPress: () => _navigation.navigate("Login") }]
         );
       });
     },

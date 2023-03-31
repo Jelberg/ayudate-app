@@ -13,24 +13,23 @@ export default function PlayerList(props) {
   const { level, list } = props;
 
   const [index, setIndex] = useState(0);
-  const videos = list.filter((e) => e.type === level);
-
-  const lengthList = videos.length;
-  const v = videos[index];
+  const _videos = list.filter((e) => e.type === level);
+  const _lengthList = _videos.length;
+  const _currentVideo = _videos[index];
 
   useEffect(() => {
     setIndex(0);
   }, [level]);
 
   function nextVideo() {
-    if (index === lengthList - 1) {
+    if (index === _lengthList - 1) {
       setIndex(0);
     } else setIndex(index + 1);
   }
 
   function prevVideo() {
     if (index === 0) {
-      setIndex(lengthList - 1);
+      setIndex(_lengthList - 1);
     } else setIndex(index - 1);
   }
 
@@ -68,18 +67,18 @@ export default function PlayerList(props) {
   return (
     <View style={styles.container}>
       <View style={[styles.player]}>
-        <Player videoId={v.id} />
+        <Player videoId={_currentVideo.id} />
       </View>
 
       <View style={styles.contentTitle}>
         <View style={styles.blockTitle}>
           <Text style={styles.title}>
-            Nivel {level}: {v.title}
+            Nivel {level}: {_currentVideo.title}
           </Text>
         </View>
         <View style={styles.blockNumber}>
           <Text style={styles.titleNumber}>
-            Video {index + 1} de {lengthList}
+            Video {index + 1} de {_lengthList}
           </Text>
           <View style={styles.buttons}>
             <Icon
@@ -102,7 +101,7 @@ export default function PlayerList(props) {
 
       <View>
         <FlatList
-          data={videos}
+          data={_videos}
           numColumns={1}
           showsVerticalScrollIndicator={false}
           renderItem={renderItem}

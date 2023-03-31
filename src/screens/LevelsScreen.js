@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 export default function LevelsScreen() {
   const [level, setLevel] = useState(1);
   const [videos, setVideos] = useState([]);
-  const navigation = useNavigation();
+  const _navigation = useNavigation();
 
   const videosList = async () => {
     return await getListVideosApi();
@@ -26,7 +26,7 @@ export default function LevelsScreen() {
         <Pressable
           styles={styles.contentBox}
           onPress={() => {
-            navigation.navigate("Learning", { level: 1, videos: { videos } });
+            _navigation.navigate("Learning", { level: 1, videos: { videos } });
           }}
         >
           <View style={styles.borderBox}>
@@ -38,7 +38,7 @@ export default function LevelsScreen() {
         <Pressable
           styles={styles.contentBox}
           onPress={() => {
-            navigation.navigate("Learning", { level: 2, videos: { videos } });
+            _navigation.navigate("Learning", { level: 2, videos: { videos } });
           }}
         >
           <View style={styles.borderBox}>
@@ -49,7 +49,7 @@ export default function LevelsScreen() {
         <Pressable
           styles={styles.contentBox}
           onPress={() => {
-            navigation.navigate("Learning", { level: 3, videos: { videos } });
+            _navigation.navigate("Learning", { level: 3, videos: { videos } });
           }}
         >
           <View style={styles.borderBox}>
@@ -60,7 +60,7 @@ export default function LevelsScreen() {
         <Pressable
           styles={styles.contentBox}
           onPress={() => {
-            navigation.navigate("Learning", { level: 4, videos: { videos } });
+            _navigation.navigate("Learning", { level: 4, videos: { videos } });
           }}
         >
           <View style={styles.borderBox}>

@@ -5,21 +5,22 @@ import { APP_COLORS } from "../styles";
 export default function PrimaryBtn(props) {
   const { title, onPress, bgColor, width, height, marginTop } = props;
 
+  let _color = bgColor ? bgColor : APP_COLORS.purple;
+  let _width = width ? width : "90%";
+  let _height = height ? height : "37%";
+  let _marginTop = marginTop ? marginTop : 60;
+
   const stylesContent = () => {
-    let marginT = marginTop ? marginTop : 60;
     return {
-      marginTop: marginT,
+      marginTop: _marginTop,
     };
   };
 
   const stylesBtn = () => {
-    let color = bgColor ? bgColor : APP_COLORS.purple;
-    let w = width ? width : "90%";
-    let h = height ? height : "37%";
     return {
-      width: w,
-      height: h,
-      backgroundColor: color,
+      width: _width,
+      height: _height,
+      backgroundColor: _color,
     };
   };
 

@@ -25,9 +25,11 @@ export default function NavigationTab() {
         component={NavigationLevels}
         options={{
           headerShown: false,
-          tabBarLabel: "Videos",
-          tabBarLabelStyle: { color: "red" },
-          tabBarIcon: () => <Icon name="book-open" color="color" size={30} />,
+          tabBarLabel: "Aprender",
+          //tabBarLabelStyle: { color: "red" },
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="chalkboard" color={color} size={size} />
+          ),
         }}
       />
       <Tab.Screen
@@ -35,6 +37,9 @@ export default function NavigationTab() {
         component={TestScreen}
         options={{
           tabBarLabel: "Test",
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="stream" color={color} size={size} />
+          ),
         }}
       />
     </Tab.Navigator>
