@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
 import NavigationLevels from "./NavigationLevels";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import TestScreen from "../screens/TestScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,6 +28,13 @@ export default function NavigationTab() {
           tabBarLabel: "Videos",
           tabBarLabelStyle: { color: "red" },
           tabBarIcon: () => <Icon name="book-open" color="color" size={30} />,
+        }}
+      />
+      <Tab.Screen
+        name="NavigationTest"
+        component={TestScreen}
+        options={{
+          tabBarLabel: "Test",
         }}
       />
     </Tab.Navigator>
