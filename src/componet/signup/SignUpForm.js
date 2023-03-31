@@ -1,17 +1,12 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Pressable,
-  Alert,
-} from "react-native";
+import { View, StyleSheet, TextInput, Alert } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import React, { useState } from "react";
 import UserDomain from "../../domain/UserDomain";
 import { createUserApi } from "../../api/user";
 import { useNavigation } from "@react-navigation/native";
 import { useFormik } from "formik";
+import PrimaryBtn from "../../utils/styles/buttons/primaryBtn";
+import { APP_COLORS } from "../../utils/styles/styles";
 
 export default function SignUpForm() {
   const navigation = useNavigation();
@@ -84,9 +79,12 @@ export default function SignUpForm() {
           secureTextEntry={isSecret}
         ></TextInput>
       </View>
-      <Pressable style={styles.contentButton} onPress={formik.handleSubmit}>
-        <Text style={styles.button}> REGISTRARSE</Text>
-      </Pressable>
+
+      <PrimaryBtn
+        title="REGISTRATE"
+        onPress={formik.handleSubmit}
+        bgColor={APP_COLORS.primary}
+      />
     </View>
   );
 }
@@ -107,22 +105,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-  },
-  contentButton: {
-    marginTop: 60,
-    alignItems: "center",
-  },
-  button: {
-    backgroundColor: "#da22fe",
-    color: "white",
-    borderWidth: 0.3,
-    fontWeight: "bold",
-    fontSize: 20,
-    borderColor: "white",
-    width: "90%",
-    height: "35%",
-    textAlign: "center",
-    borderRadius: 20,
-    padding: 10,
   },
 });

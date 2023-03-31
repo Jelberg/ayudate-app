@@ -11,6 +11,7 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import { login } from "../../api/user";
 import { useFormik } from "formik";
 import { useNavigation } from "@react-navigation/native";
+import PrimaryBtn from "../../utils/styles/buttons/primaryBtn";
 
 export default function LoginForm() {
   const navigation = useNavigation();
@@ -69,9 +70,8 @@ export default function LoginForm() {
           onPress={setNewStateInputSecret}
         />
       </View>
-      <Pressable style={styles.contentButton} onPress={formik.handleSubmit}>
-        <Text style={styles.button}> INICIAR SESION</Text>
-      </Pressable>
+
+      <PrimaryBtn title="INICIAR SESION" onPress={formik.handleSubmit} />
     </View>
   );
 }
@@ -92,22 +92,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-  },
-  contentButton: {
-    marginTop: 60,
-    alignItems: "center",
-  },
-  button: {
-    backgroundColor: "#9733ee",
-    color: "white",
-    borderWidth: 0.3,
-    fontWeight: "bold",
-    fontSize: 20,
-    borderColor: "white",
-    width: "90%",
-    height: "37%",
-    textAlign: "center",
-    borderRadius: 20,
-    padding: 10,
   },
 });

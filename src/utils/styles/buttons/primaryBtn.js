@@ -1,38 +1,40 @@
 import { Pressable, Text, StyleSheet } from "react-native";
 import React from "react";
+import { APP_COLORS } from "../styles";
 
-export default function primaryBtn(props) {
-  const { title, onPress, bgColor, width, height } = props;
+export default function PrimaryBtn(props) {
+  const { title, onPress, bgColor, width, height, marginTop } = props;
 
-  const colorBtn = () => {
-    let color = bgColor ? "#9733ee" : bgColor;
+  const stylesContent = () => {
+    let marginT = marginTop ? marginTop : 60;
     return {
-      backgroundColor: color,
+      marginTop: marginT,
     };
   };
 
-  const proportionsBtn = () => {
-    let w = width ? "90%" : width;
-    let h = height ? "37%" : height;
+  const stylesBtn = () => {
+    let color = bgColor ? bgColor : APP_COLORS.purple;
+    let w = width ? width : "90%";
+    let h = height ? height : "37%";
     return {
       width: w,
       height: h,
+      backgroundColor: color,
     };
   };
 
   return (
     <Pressable
-      style={[styles.contentButton, proportionsBtn()]}
+      style={[styles.contentButton, stylesContent()]}
       onPress={onPress}
     >
-      <Text style={[styles.button, colorBtn()]}> {title}</Text>
+      <Text style={[styles.button, stylesBtn()]}> {title}</Text>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   contentButton: {
-    marginTop: 60,
     alignItems: "center",
   },
   button: {
