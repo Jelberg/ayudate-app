@@ -111,10 +111,12 @@ const styles = StyleSheet.create({
   },
   contentResult: {
     flex: 1,
-    flexDirection: "column",
+    //backgroundColor: "red",
+    justifyContent: "center",
     alignItems: "center",
   },
   titleResult: {
+    //flex: 5,
     fontSize: 30,
     fontWeight: "bold",
   },

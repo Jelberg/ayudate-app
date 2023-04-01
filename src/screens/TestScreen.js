@@ -1,11 +1,17 @@
-import { View } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import Test from "../componet/test/Test";
 import React from "react";
 
 export default function TestScreen() {
   return (
-    <View>
+    <SafeAreaView style={styles.content}>
       <Test />
-    </View>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+  },
+});
