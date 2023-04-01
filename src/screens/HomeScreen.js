@@ -1,15 +1,18 @@
-import { View, Text, Button, SafeAreaView } from "react-native";
+import { StyleSheet, SafeAreaView } from "react-native";
 import React from "react";
+import Profile from "../componet/progress/Profile";
+import Progress from "../componet/progress/progress";
 
-export default function HomeScreen(props) {
-  const { navigation } = props;
-
+export default function HomeScreen() {
   return (
-    <SafeAreaView>
-      <Text>HomeScreen</Text>
-      <Text>HomeScreen</Text>
-      <Text>HomeScreen</Text>
-      <Text>HomeScreen</Text>
+    <SafeAreaView style={styles.container}>
+      <Profile />
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
