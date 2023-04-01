@@ -6,13 +6,15 @@ import PrimaryBtn from "../../utils/styles/buttons/primaryBtn";
 import { getTestModuleOneApi } from "../../api/testModules";
 
 export default function Test() {
-  const [option, setOption] = useState(0);
+  const [option, setOption] = useState(null);
   const [titleQuestion, setTitleQuestion] = useState("");
   const [index, setIndex] = useState(0);
   const [progress, setProgress] = useState("0%");
   const [answers, setAnswers] = useState([]);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [isEnd, setIsEnd] = useState(false);
+  const [success, setSuccess] = useState(undefined);
+  const [countResult, setCountResult] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -26,18 +28,22 @@ export default function Test() {
     })();
   }, [index]);
 
+  function selected(value) {
+    value ? setSuccess(1) : setSuccess(0);
+  }
+
   function nextQuestion() {
     let total = totalQuestions - 1;
-    if (index < total) {
+    if (index < total && success !== undefined) {
       setIndex(index + 1);
+      setCountResult(countResult + success);
+      setSuccess(undefined);
+      setOption(null);
+    } else if (success === undefined) {
+      console.log("DEBE SELECCIONAR UNA RESPUESTA");
     } else {
+      setCountResult(countResult + success);
       setIsEnd(true);
-      /*setOption(0);
-      setTitleQuestion("");
-      setIndex(0);
-      setProgress("0%");
-      setAnswers([]);
-      setTotalQuestions(0);*/
     }
   }
 
@@ -58,6 +64,7 @@ export default function Test() {
             ]}
             onPress={() => {
               setOption(element.id);
+              selected(element.isTrue);
             }}
           >
             <Text style={styles.options}>{element.answer}</Text>
@@ -84,11 +91,11 @@ export default function Test() {
       <View style={styles.containerResults}>
         <View style={[styles.card, { backgroundColor: APP_COLORS.turquoise }]}>
           <Text style={styles.textResults}>ACIERTOS</Text>
-          <Text style={styles.textResults}>#</Text>
+          <Text style={styles.textResults}>{countResult}</Text>
         </View>
         <View style={[styles.card, { backgroundColor: APP_COLORS.yellow }]}>
           <Text style={styles.textResults}>ERRORES</Text>
-          <Text style={styles.textResults}>#</Text>
+          <Text style={styles.textResults}>{totalQuestions - countResult}</Text>
         </View>
       </View>
 
