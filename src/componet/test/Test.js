@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import React, { useState, useEffect } from "react";
 import Advance from "./Advance";
 import { APP_COLORS } from "../../utils/styles/styles";
@@ -31,8 +31,6 @@ export default function Test() {
     if (index < total) {
       setIndex(index + 1);
     } else {
-      console.log("FINAL DEL TEST");
-      console.log(`${index} <= ${totalQuestions}`);
       setIsEnd(true);
       /*setOption(0);
       setTitleQuestion("");
@@ -74,14 +72,35 @@ export default function Test() {
     </View>
   ) : (
     <View style={styles.contentResult}>
-      <Text style={styles.titleResult}>RESULTS</Text>
+      <Image
+        style={{ width: 200, height: 200 }}
+        source={require("../../assets/gif/confetti-gradient.gif")}
+      />
+
+      <Text style={styles.titleResult}>FELICIDADES!</Text>
+      <Text style={styles.text}>Terminaste el Test</Text>
+      <Text style={styles.text}>Aqui estan los resultados</Text>
+
+      <View style={styles.containerResults}>
+        <View style={[styles.card, { backgroundColor: APP_COLORS.turquoise }]}>
+          <Text style={styles.textResults}>ACIERTOS</Text>
+          <Text style={styles.textResults}>#</Text>
+        </View>
+        <View style={[styles.card, { backgroundColor: APP_COLORS.yellow }]}>
+          <Text style={styles.textResults}>ERRORES</Text>
+          <Text style={styles.textResults}>#</Text>
+        </View>
+      </View>
+
+      <PrimaryBtn title="CONTINUAR" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   test: {
-    marginTop: 30,
+    flex: 1,
+    marginTop: 50,
   },
   content: {
     alignContent: "center",
@@ -111,13 +130,34 @@ const styles = StyleSheet.create({
   },
   contentResult: {
     flex: 1,
-    //backgroundColor: "red",
     justifyContent: "center",
     alignItems: "center",
   },
   titleResult: {
-    //flex: 5,
     fontSize: 30,
     fontWeight: "bold",
+    marginBottom: 25,
+  },
+  text: {
+    fontSize: 20,
+    color: APP_COLORS.gray,
+  },
+  containerResults: {
+    flexDirection: "row",
+    alignContent: "center",
+    alignItems: "center",
+    paddingTop: 50,
+    paddingBotton: 50,
+  },
+  card: {
+    padding: 15,
+    borderRadius: 10,
+    margin: 10,
+    alignItems: "center",
+  },
+  textResults: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 25,
   },
 });

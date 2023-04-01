@@ -38,6 +38,7 @@ export default function NavigationTab() {
         name="NavigationTest"
         component={TestScreen}
         options={{
+          headerShown: false,
           tabBarLabel: "Test",
           tabBarActiveTintColor: APP_COLORS.turquoise,
           tabBarIcon: ({ color, size }) => (
