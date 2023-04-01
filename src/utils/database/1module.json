@@ -19,5 +19,42 @@
         "isTrue": false
       }
     ]
+  },
+  {
+    "id": 2,
+    "question": "¿Cuáles son los principales trastornos del comportamiento alimentario?",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Vigorexia y Ortorexia",
+        "isTrue": true
+      },
+      {
+        "id": 2,
+        "answer": "Bulimia, Pica y atracón",
+        "isTrue": false
+      },
+      {
+        "id": 3,
+        "answer": "Atracón, Bulimia y Anorexia",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "____________ es el Trastorno del Comportamiento Alimentario que tiene como síntoma el miedo irracional a engordar",
+    "options": [
+      {
+        "id": 1,
+        "answer": "TCA",
+        "isTrue": true
+      },
+      {
+        "id": 2,
+        "answer": "TCANE",
+        "isTrue": false
+      }
+    ]
   }
 ]

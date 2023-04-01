@@ -4,6 +4,7 @@ import HomeScreen from "../screens/HomeScreen";
 import NavigationLevels from "./NavigationLevels";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import TestScreen from "../screens/TestScreen";
+import { APP_COLORS } from "../utils/styles/styles";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,6 +16,7 @@ export default function NavigationTab() {
         component={HomeScreen}
         options={{
           title: "Perfil",
+          tabBarActiveTintColor: APP_COLORS.turquoise,
           tabBarIcon: ({ color, size }) => (
             <Icon name="user" color={color} size={size} />
           ),
@@ -26,7 +28,7 @@ export default function NavigationTab() {
         options={{
           headerShown: false,
           tabBarLabel: "Aprender",
-          //tabBarLabelStyle: { color: "red" },
+          tabBarActiveTintColor: APP_COLORS.turquoise,
           tabBarIcon: ({ color, size }) => (
             <Icon name="chalkboard" color={color} size={size} />
           ),
@@ -37,7 +39,7 @@ export default function NavigationTab() {
         component={TestScreen}
         options={{
           tabBarLabel: "Test",
-
+          tabBarActiveTintColor: APP_COLORS.turquoise,
           tabBarIcon: ({ color, size }) => (
             <Icon name="stream" color={color} size={size} />
           ),

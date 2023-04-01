@@ -6,8 +6,8 @@ export default function PrimaryBtn(props) {
   const { title, onPress, bgColor, width, height, marginTop } = props;
 
   let _color = bgColor ? bgColor : APP_COLORS.purple;
-  let _width = width ? width : "90%";
-  let _height = height ? height : "37%";
+  let _width = width ? width : 200;
+  let _height = height ? height : 50;
   let _marginTop = marginTop ? marginTop : 60;
 
   const stylesContent = () => {
@@ -37,6 +37,7 @@ export default function PrimaryBtn(props) {
 const styles = StyleSheet.create({
   contentButton: {
     alignItems: "center",
+    alignContent: "center",
   },
   button: {
     color: "white",
@@ -46,6 +47,9 @@ const styles = StyleSheet.create({
     borderColor: "white",
     textAlign: "center",
     borderRadius: 20,
-    padding: 10,
+    paddingTop: "3.6%",
+    paddingLeft: 20,
+    paddingRight: 20,
+    //padding: 10,
   },
 });

@@ -6,4 +6,5 @@ export const APP_COLORS = {
   good: "#1ec000",
   gray: "#5f697d",
   light_gray: "#dedede",
+  turquoise: "#2fc28e",
 };

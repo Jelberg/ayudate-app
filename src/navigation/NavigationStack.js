@@ -3,7 +3,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "../screens/LoginScreen";
 import SignUpScreen from "../screens/SignUpScreen";
 import NavigationTab from "./NavigationTab";
-import Icon from "react-native-vector-icons/FontAwesome5";
 
 const Stack = createNativeStackNavigator();
 
