@@ -15,6 +15,7 @@ export default function NavigationTab() {
         name="Home"
         component={HomeScreen}
         options={{
+          headerShown: false,
           title: "Perfil",
           tabBarActiveTintColor: APP_COLORS.turquoise,
           tabBarIcon: ({ color, size }) => (

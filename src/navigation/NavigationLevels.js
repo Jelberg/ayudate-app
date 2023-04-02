@@ -9,7 +9,11 @@ const Stack = createNativeStackNavigator();
 export default function NavigationLevels() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Levels" component={LevelsScreen} />
+      <Stack.Screen
+        name="Levels"
+        component={LevelsScreen}
+        options={{ title: "Modulos de Aprendizaje" }}
+      />
       <Stack.Screen
         name="Learning"
         component={LearningScreen}

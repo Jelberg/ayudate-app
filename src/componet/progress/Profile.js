@@ -1,50 +1,40 @@
 import { View, Text, StyleSheet } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ProgressBarApp from "../../utils/styles/progressBar/ProgressBarApp";
+import { getProgressUserAPi } from "../../api/progress";
+import { MODULE_NAMES } from "../../utils/constants";
 
 export default function Profile() {
   const bgWidth = "50%";
-  const progress = "40%";
+  const [module, setModule] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      await getProgressUserAPi().then((response) => {
+        setModule(response);
+      });
+    })();
+  }, []);
+
   return (
     <View style={styles.constainer}>
       <View style={styles.card}>
         <Text style={styles.titleStyle}>PROGRESO</Text>
-        <View style={styles.containerProgress}>
-          <Text style={styles.textModule}>NUTRICIÓN</Text>
-          <ProgressBarApp
-            progress={progress}
-            bgWidth={bgWidth}
-            style={styles.progressBar}
-          />
-          <Text style={styles.porcentage}>{progress}</Text>
-        </View>
-        <View style={styles.containerProgress}>
-          <Text style={styles.textModule}>AUTOESTIMA</Text>
-          <ProgressBarApp
-            progress={progress}
-            bgWidth={bgWidth}
-            style={styles.progressBar}
-          />
-          <Text style={styles.porcentage}>{progress}</Text>
-        </View>
-        <View style={styles.containerProgress}>
-          <Text style={styles.textModule}>HABILIDADES EMOCIONALES</Text>
-          <ProgressBarApp
-            progress={progress}
-            bgWidth={bgWidth}
-            style={styles.progressBar}
-          />
-          <Text style={styles.porcentage}>{progress}</Text>
-        </View>
-        <View style={styles.containerProgress}>
-          <Text style={styles.textModule}>HABILIDADES SOCIALES</Text>
-          <ProgressBarApp
-            progress={progress}
-            bgWidth={bgWidth}
-            style={styles.progressBar}
-          />
-          <Text style={styles.porcentage}>{progress}</Text>
-        </View>
+        {module.map((element) => (
+          <View key={element.module.module} style={styles.containerProgress}>
+            <Text style={styles.textModule}>
+              {MODULE_NAMES[element.module.module]}
+            </Text>
+            <ProgressBarApp
+              progress={`${element.module.porcentage}%`}
+              bgWidth={bgWidth}
+              style={styles.progressBar}
+            />
+            <Text
+              style={styles.porcentage}
+            >{`${element.module.porcentage}%`}</Text>
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -55,6 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignContent: "center",
     alignItems: "center",
+    justifyContent: "center",
   },
   card: {
     alignContent: "center",
@@ -62,7 +53,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: "gary",
+    borderColor: "gray",
     backgroundColor: "white",
     padding: 20,
     paddingBottom: 30,

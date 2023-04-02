@@ -5,6 +5,8 @@ import { APP_COLORS } from "../../utils/styles/styles";
 import PrimaryBtn from "../../utils/styles/buttons/primaryBtn";
 import { getTestModuleApi } from "../../api/testModules";
 import { useNavigation } from "@react-navigation/native";
+import { addProgressApi } from "../../api/progress";
+import ProgressDomain from "../../domain/ProgressDomain";
 
 export default function Test(props) {
   const { module } = props;
@@ -39,7 +41,7 @@ export default function Test(props) {
     value ? setSuccess(1) : setSuccess(0);
   }
 
-  function nextQuestion() {
+  async function nextQuestion() {
     let total = totalQuestions - 1;
     if (index < total && success !== undefined) {
       setIndex(index + 1);
@@ -50,7 +52,13 @@ export default function Test(props) {
       console.log("DEBE SELECCIONAR UNA RESPUESTA");
     } else {
       setCountResult(countResult + success);
-      setIsEnd(true);
+      let newProgress = new ProgressDomain({
+        module: module.toString(),
+        porcentage: Math.trunc((countResult * 100) / totalQuestions),
+      });
+      await addProgressApi(newProgress).then(() => {
+        setIsEnd(true);
+      });
     }
   }
 
