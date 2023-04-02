@@ -2,10 +2,14 @@ import { SafeAreaView, StyleSheet } from "react-native";
 import Test from "../componet/test/Test";
 import React from "react";
 
-export default function TestScreen() {
+export default function TestScreen(props) {
+  const {
+    route: { params },
+  } = props;
+
   return (
     <SafeAreaView style={styles.content}>
-      <Test />
+      <Test module={params.module} />
     </SafeAreaView>
   );
 }

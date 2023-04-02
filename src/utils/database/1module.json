@@ -56,5 +56,21 @@
         "isTrue": false
       }
     ]
+  },
+  {
+    "id": 4,
+    "question": "En la bulimia __________ es utilizado como un método compensatorio después de un episodio de atracón",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Atípica",
+        "isTrue": false
+      },
+      {
+        "id": 2,
+        "answer": "Nerviosa",
+        "isTrue": true
+      }
+    ]
   }
 ]

@@ -8,10 +8,13 @@ import {
 import React, { useState, useEffect } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import Player from "./Player";
+import PrimaryBtn from "../../utils/styles/buttons/primaryBtn";
+import { useNavigation } from "@react-navigation/native";
 
 export default function PlayerList(props) {
   const { level, list } = props;
 
+  const _navigation = useNavigation();
   const [index, setIndex] = useState(0);
   const _videos = list.filter((e) => e.type === level);
   const _lengthList = _videos.length;
@@ -33,8 +36,11 @@ export default function PlayerList(props) {
     } else setIndex(index - 1);
   }
 
-  const [selectedId, setSelectedId] = useState();
+  function goToPage() {
+    _navigation.navigate("Test", { module: level });
+  }
 
+  const [selectedId, setSelectedId] = useState();
   const renderItem = ({ item }) => {
     const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
     const color = item.id === selectedId ? "white" : "black";
@@ -108,6 +114,10 @@ export default function PlayerList(props) {
           keyExtractor={(item) => item.id}
         />
       </View>
+
+      <View style={styles.containerButton}>
+        <PrimaryBtn title="TEST" onPress={goToPage} />
+      </View>
     </View>
   );
 }
@@ -116,7 +126,7 @@ export default function PlayerList(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "column",
+    flex: 1,
     backgroundColor: "white",
   },
   player: {
@@ -170,5 +180,10 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
+  },
+  containerButton: {
+    flex: 1,
+    justifyContent: "flex-end",
+    marginBottom: 15,
   },
 });

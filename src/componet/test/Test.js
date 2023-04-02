@@ -3,9 +3,12 @@ import React, { useState, useEffect } from "react";
 import Advance from "./Advance";
 import { APP_COLORS } from "../../utils/styles/styles";
 import PrimaryBtn from "../../utils/styles/buttons/primaryBtn";
-import { getTestModuleOneApi } from "../../api/testModules";
+import { getTestModuleApi } from "../../api/testModules";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Test() {
+export default function Test(props) {
+  const { module } = props;
+  const _navigation = useNavigation();
   const [option, setOption] = useState(null);
   const [titleQuestion, setTitleQuestion] = useState("");
   const [index, setIndex] = useState(0);
@@ -16,9 +19,13 @@ export default function Test() {
   const [success, setSuccess] = useState(undefined);
   const [countResult, setCountResult] = useState(0);
 
+  function goToPageLevels() {
+    _navigation.navigate("Levels");
+  }
+
   useEffect(() => {
     (async () => {
-      await getTestModuleOneApi().then((response) => {
+      await getTestModuleApi(module).then((response) => {
         setTotalQuestions(response.length);
         let _progress = ((index + 1) * 100) / response.length;
         setProgress(Math.trunc(_progress) + "%");
@@ -99,7 +106,7 @@ export default function Test() {
         </View>
       </View>
 
-      <PrimaryBtn title="CONTINUAR" />
+      <PrimaryBtn title="CONTINUAR" onPress={goToPageLevels} />
     </View>
   );
 }

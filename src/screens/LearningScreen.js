@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import React from "react";
 import PlayerList from "../componet/videos/PlayerList";
 
@@ -8,8 +8,14 @@ export default function LearningScreen(props) {
   } = props;
 
   return (
-    <View>
+    <SafeAreaView style={styles.container}>
       <PlayerList level={params.level} list={params.videos.videos} />
-    </View>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

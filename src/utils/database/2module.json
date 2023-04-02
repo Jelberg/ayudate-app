@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "question": "¿El desbalance electrolítico es una secuela de __________",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Bulimia",
+        "isTrue": true
+      },
+      {
+        "id": 2,
+        "answer": "Anorexia",
+        "isTrue": false
+      },
+      {
+        "id": 3,
+        "answer": "Trastorno por atracón",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Existen medicamentos antidepresivos para tratar la bulimia",
+    "options": [
+      {
+        "id": 2,
+        "answer": "Falso",
+        "isTrue": false
+      },
+      {
+        "id": 1,
+        "answer": "Verdadero",
+        "isTrue": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "¿Quiénes conforman el grupo de profesionales que tratan los casos de TCA?",
+    "options": [
+      {
+        "id": 2,
+        "answer": "Médicos de cabecera",
+        "isTrue": false
+      },
+      {
+        "id": 1,
+        "answer": "Psiquiatras y psicólogos",
+        "isTrue": false
+      },
+      {
+        "id": 3,
+        "answer": "Nutricionistas y endocrinos",
+        "isTrue": false
+      },
+      {
+        "id": 4,
+        "answer": "Todos los anteriores",
+        "isTrue": true
+      },
+      {
+        "id": 5,
+        "answer": "Ninguno de los anteriores",
+        "isTrue": false
+      }
+    ]
+  }
+]

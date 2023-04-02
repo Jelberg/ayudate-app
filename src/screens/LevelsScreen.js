@@ -31,7 +31,7 @@ export default function LevelsScreen() {
         >
           <View style={styles.borderBox}>
             <View style={styles.box}></View>
-            <Text style={styles.subtitle}> 1. Nivel 1</Text>
+            <Text style={styles.subtitle}> Modulo I. Conociendo el TCA</Text>
           </View>
         </Pressable>
 
@@ -43,7 +43,10 @@ export default function LevelsScreen() {
         >
           <View style={styles.borderBox}>
             <View style={styles.box}></View>
-            <Text style={styles.subtitle}> 2. Nivel 2</Text>
+            <Text style={styles.subtitle}>
+              {" "}
+              Modulo II. Tratamiento de la Anorexia
+            </Text>
           </View>
         </Pressable>
         <Pressable
@@ -54,7 +57,10 @@ export default function LevelsScreen() {
         >
           <View style={styles.borderBox}>
             <View style={styles.box}></View>
-            <Text style={styles.subtitle}> 3. Nivel 3</Text>
+            <Text style={styles.subtitle}>
+              {" "}
+              Modulo II. Autoestima y perspectiva
+            </Text>
           </View>
         </Pressable>
         <Pressable
@@ -65,7 +71,7 @@ export default function LevelsScreen() {
         >
           <View style={styles.borderBox}>
             <View style={styles.box}></View>
-            <Text style={styles.subtitle}> 4. Nivel 4</Text>
+            <Text style={styles.subtitle}> Modulo IV. Palabras de ánimo</Text>
           </View>
         </Pressable>
       </ScrollView>

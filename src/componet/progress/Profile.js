@@ -10,7 +10,7 @@ export default function Profile() {
       <View style={styles.card}>
         <Text style={styles.titleStyle}>PROGRESO</Text>
         <View style={styles.containerProgress}>
-          <Text style={styles.textModule}>NUTRICION</Text>
+          <Text style={styles.textModule}>NUTRICIÓN</Text>
           <ProgressBarApp
             progress={progress}
             bgWidth={bgWidth}
@@ -28,7 +28,7 @@ export default function Profile() {
           <Text style={styles.porcentage}>{progress}</Text>
         </View>
         <View style={styles.containerProgress}>
-          <Text style={styles.textModule}>HAILIDADES EMOCIONALES</Text>
+          <Text style={styles.textModule}>HABILIDADES EMOCIONALES</Text>
           <ProgressBarApp
             progress={progress}
             bgWidth={bgWidth}

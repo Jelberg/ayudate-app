@@ -1,7 +1,6 @@
 import { StyleSheet, SafeAreaView } from "react-native";
 import React from "react";
 import Profile from "../componet/progress/Profile";
-import Progress from "../componet/progress/progress";
 
 export default function HomeScreen() {
   return (

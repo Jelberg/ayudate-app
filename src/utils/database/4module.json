@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "question": "¿Los TCA pueden pasar desapercibidos?",
+    "options": [
+      {
+        "id": 1,
+        "answer": "False",
+        "isTrue": false
+      },
+      {
+        "id": 2,
+        "answer": "Verdadero",
+        "isTrue": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "¿Los TCA generan consecuencias solo físicas?",
+    "options": [
+      {
+        "id": 1,
+        "answer": "False",
+        "isTrue": true
+      },
+      {
+        "id": 2,
+        "answer": "Verdadero",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "¿El miedo a comer es una consecuencia de un TCA?",
+    "options": [
+      {
+        "id": 1,
+        "answer": "False",
+        "isTrue": false
+      },
+      {
+        "id": 2,
+        "answer": "Verdadero",
+        "isTrue": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "question": "Según el psiquiatra Enrique Rojas, los elementos básicos del ser humano:",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Físicos y psicológicos",
+        "isTrue": false
+      },
+      {
+        "id": 2,
+        "answer": "Psicológicos, sociales y culturales",
+        "isTrue": false
+      },
+      {
+        "id": 3,
+        "answer": "Físicos, psicológicos, sociales y culturales",
+        "isTrue": true
+      },
+      {
+        "id": 4,
+        "answer": "Ninguna de las anteriores",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "¿La autoestima se va construyendo, desarrollando y cambiando durante toda la vida?",
+    "options": [
+      {
+        "id": 1,
+        "answer": "Falso",
+        "isTrue": false
+      },
+      {
+        "id": 2,
+        "answer": "Verdadero",
+        "isTrue": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": " ¿Cómo se les denomina a los comentarios negativos encubiertos?",
+    "options": [
+      {
+        "id": 2,
+        "answer": "Comentarios destructivos",
+        "isTrue": false
+      },
+      {
+        "id": 3,
+        "answer": "Comentarios sin sentido",
+        "isTrue": false
+      },
+      {
+        "id": 1,
+        "answer": "Comentarios constructivos",
+        "isTrue": true
+      }
+    ]
+  }
+]

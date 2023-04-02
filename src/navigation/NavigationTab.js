@@ -34,7 +34,11 @@ export default function NavigationTab() {
           ),
         }}
       />
-      <Tab.Screen
+    </Tab.Navigator>
+  );
+}
+
+/**<Tab.Screen
         name="NavigationTest"
         component={TestScreen}
         options={{
@@ -45,7 +49,4 @@ export default function NavigationTab() {
             <Icon name="stream" color={color} size={size} />
           ),
         }}
-      />
-    </Tab.Navigator>
-  );
-}
+      />*/
